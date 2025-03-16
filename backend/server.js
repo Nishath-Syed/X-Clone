@@ -2,6 +2,7 @@ import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from 'cors';
 import { v2 as cloudinary } from "cloudinary";
 
 import authRoutes from "./routes/auth.route.js";
@@ -22,6 +23,16 @@ cloudinary.config({
 const app = express();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
+
+// CORS configuration
+const corsOptions = {
+    origin: 'https://deft-tapioca-03a801.netlify.app', // Allow requests from your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+    credentials: true, // Allow cookies (like JWT tokens) to be sent with the request
+};
+
+// Use the CORS middleware with the configuration
+app.use(cors(corsOptions));
 
 app.use(express.json({ limit: "5mb" })); // to parse req.body
 // limit shouldn't be too high to prevent DOS
