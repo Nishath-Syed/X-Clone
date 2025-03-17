@@ -26,7 +26,7 @@ const __dirname = path.resolve();
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://deft-tapioca-03a801.netlify.app', // Allow requests from your frontend
+    origin: 'https://67d85706451a937dfd7f6e9e--deft-tapioca-03a801.netlify.app', // Allow requests from your frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
     credentials: true, // Allow cookies (like JWT tokens) to be sent with the request
 };
